@@ -8,9 +8,6 @@
 # Release date: 28 September 2018
 # Version: 0.1
 # -----------------------------------------------------------------------------
-echo
-echo "Welcome to macOS Mojave ISO creator tool"
-echo
 
 formattedPrint() {
     echo
@@ -55,6 +52,8 @@ makeISO() {
 
     formattedPrint "All done now. You should have Mojave.iso on $USER's Desktop now."
 }
+
+formattedPrint "Welcome to macOS Mojave ISO creator tool"
 
 # Prompting user to download the installer from app store if not done already
 while true; do
