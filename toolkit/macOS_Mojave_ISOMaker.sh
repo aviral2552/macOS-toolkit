@@ -6,10 +6,17 @@
 #
 # License: GNU General Public License v3.0
 # Release date: 28 September 2018
+# Version: 0.1
 # -----------------------------------------------------------------------------
 echo
 echo "Welcome to macOS Mojave ISO creator tool"
 echo
+
+formattedPrint() {
+    echo
+    echo "$@"
+    echo
+}
 
 checkAdmin() {
 
@@ -18,9 +25,7 @@ checkAdmin() {
         then
             makeISO
         else
-            echo
-            echo "User '$USER' doesn't seem to be an administrator! Please run this script with administrator rights."
-            echo
+            formattedPrint "User '$USER' doesn't seem to be an administrator! Please run this script with administrator rights."
     fi
 
 }
@@ -30,16 +35,12 @@ makeISO() {
     # File system has been set to HFS+ Journaled for maximum compatibility.
     # This can be set to APFS on newer systems, or you can convert your file system to APFS post installation.
 
-    echo
-    echo "Creating and mounting a disk image..."
-    echo
+    formattedPrint "Creating and mounting a disk image..."
 
     hdiutil create -o /tmp/Mojave.cdr -size 6g -layout SPUD -fs HFS+J
     hdiutil attach /tmp/Mojave.cdr.dmg -noverify -mountpoint /Volumes/install_build
 
-    echo
-    echo "Copying downloaded files to our disk image and moving it to the Desktop..."
-    echo
+    formattedPrint "Copying downloaded files to our disk image and moving it to the Desktop..."
 
     # This is where we need those pesky administrative rights. 
 
@@ -47,16 +48,12 @@ makeISO() {
     mv /tmp/Mojave.cdr.dmg ~/Desktop/InstallSystem.dmg
     hdiutil detach /Volumes/Install\ macOS\ Mojave
 
-    echo
-    echo "Converting the disk image to an ISO file and cleaning up..."
-    echo
+    formattedPrint "Converting the disk image to an ISO file and cleaning up..."
 
     hdiutil convert ~/Desktop/InstallSystem.dmg -format UDTO -o ~/Desktop/Mojave.iso
     mv ~/Desktop/Mojave.cdr.iso ~/Desktop/Mojave.iso
 
-    echo
-    echo "All done now. You should have Mojave.iso on $USER's Desktop now."
-    echo
+    formattedPrint "All done now. You should have Mojave.iso on $USER's Desktop now."
 }
 
 # Prompting user to download the installer from app store if not done already
