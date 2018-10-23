@@ -49,7 +49,7 @@ makeISO() {
 
     hdiutil convert ~/Desktop/InstallSystem.dmg -format UDTO -o ~/Desktop/Mojave.iso
     mv ~/Desktop/Mojave.iso.cdr ~/Desktop/Mojave.iso
-    rm InstallSystem.dmg
+    rm ~/Desktop/InstallSystem.dmg
 
     formattedPrint "All done now. You should have Mojave.iso on $USER's Desktop now."
 }
