@@ -1,12 +1,12 @@
 #!/bin/sh
 # macOS Mojave ISO creator
 #
-# You can visit my GitHub for other useful utilities
-# GitHub: https://github.com/thelamehacker
+# Author: https://github.com/thelamehacker
 #
 # License: GNU General Public License v3.0
 # Release date: 28 September 2018
-# Version: 0.1
+# Last updated: 24 October 2018
+# Version: 0.2
 # -----------------------------------------------------------------------------
 
 formattedPrint() {
@@ -39,7 +39,7 @@ makeISO() {
 
     formattedPrint "Copying downloaded files to our disk image and moving it to the Desktop..."
 
-    # This is where we need those pesky administrative rights. 
+    # This is where sudo makes us a sandwich and we need those pesky administrative rights. 
 
     sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/install_build
     mv /tmp/Mojave.cdr.dmg ~/Desktop/InstallSystem.dmg
@@ -51,12 +51,13 @@ makeISO() {
     mv ~/Desktop/Mojave.iso.cdr ~/Desktop/Mojave.iso
     rm ~/Desktop/InstallSystem.dmg
 
-    formattedPrint "All done now. You should have Mojave.iso on $USER's Desktop now."
+    formattedPrint "All done! You should have Mojave.iso on $USER's Desktop now."
 }
 
 formattedPrint "Welcome to macOS Mojave ISO creator tool"
 
 # Prompting user to download the installer from app store if not done already
+
 while true; do
     read -p "Have you downloaded the macOS Mojave installer from app store? " yn
     case $yn in
