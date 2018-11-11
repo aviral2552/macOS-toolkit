@@ -1,0 +1,4 @@
+[submodule "cleanmymac"]
+	path = cleanmymac
+	url = git@github.com:thelamehacker/cleanmymac
+	branch = master
