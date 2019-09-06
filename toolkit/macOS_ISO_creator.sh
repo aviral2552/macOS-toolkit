@@ -3,11 +3,12 @@
 # Original author: shela | https://www.insanelymac.com/forum/profile/483646-shela/
 # 
 # Support for High Sierra and Mojave added by thelamehacker@GitHub | https://github.com/thelamehacker
+# Catalina support will be available after official release
 #
 # License: GNU General Public License v3.0
 # Release date: 30 October 2018
-# Last updated: 30 October 2018
-# Version: 0.1a
+# Last updated: 06 September 2019
+# Version: 0.1b
 # -----------------------------------------------------------------------------
 
 
