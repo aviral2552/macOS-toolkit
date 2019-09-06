@@ -65,7 +65,7 @@ create_image() {
 
   # Create sparse image with a Single Partition UDIF
   info "Creating sparse image..."
-  hdiutil create -o "${TEMP_DIR}/osx" -size 7500g -type SPARSE -layout SPUD -fs HFS+J
+  hdiutil create -o "${TEMP_DIR}/osx" -size 7500m -type SPARSE -layout SPUD -fs HFS+J
   if [[ $? -ne 0 ]]; then
     error "Could not create sparse image."
     exit 1
